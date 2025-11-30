@@ -7,6 +7,7 @@ export const header = style({
 	width: "100%",
 	padding: "0.75rem 1.5rem",
 	display: "flex",
+  columnGap: "1rem",
 	alignItems: "center",
 	backgroundColor: "rgba(255, 255, 255, 0.8)",
 	backdropFilter: "blur(8px)",
