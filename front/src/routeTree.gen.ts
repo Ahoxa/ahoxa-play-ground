@@ -9,133 +9,202 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UseSyncExternalStoreRouteImport } from './routes/use-sync-external-store'
+import { Route as UseImperativeHandleRouteImport } from './routes/use-imperative-handle'
+import { Route as UseIdRouteImport } from './routes/use-id'
+import { Route as UseDeferredValueRouteImport } from './routes/use-deferred-value'
+import { Route as UseActionStateRouteImport } from './routes/use-action-state'
+import { Route as SuspenseRouteImport } from './routes/suspense'
+import { Route as CacheRouteImport } from './routes/cache'
+import { Route as ActivityRouteImport } from './routes/activity'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as DemoStartServerFuncsRouteImport } from './routes/demo/start.server-funcs'
-import { Route as DemoStartApiRequestRouteImport } from './routes/demo/start.api-request'
-import { Route as DemoApiNamesRouteImport } from './routes/demo/api.names'
-import { Route as DemoStartSsrIndexRouteImport } from './routes/demo/start.ssr.index'
-import { Route as DemoStartSsrSpaModeRouteImport } from './routes/demo/start.ssr.spa-mode'
-import { Route as DemoStartSsrFullSsrRouteImport } from './routes/demo/start.ssr.full-ssr'
-import { Route as DemoStartSsrDataOnlyRouteImport } from './routes/demo/start.ssr.data-only'
 
+const UseSyncExternalStoreRoute = UseSyncExternalStoreRouteImport.update({
+  id: '/use-sync-external-store',
+  path: '/use-sync-external-store',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UseImperativeHandleRoute = UseImperativeHandleRouteImport.update({
+  id: '/use-imperative-handle',
+  path: '/use-imperative-handle',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UseIdRoute = UseIdRouteImport.update({
+  id: '/use-id',
+  path: '/use-id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UseDeferredValueRoute = UseDeferredValueRouteImport.update({
+  id: '/use-deferred-value',
+  path: '/use-deferred-value',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UseActionStateRoute = UseActionStateRouteImport.update({
+  id: '/use-action-state',
+  path: '/use-action-state',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SuspenseRoute = SuspenseRouteImport.update({
+  id: '/suspense',
+  path: '/suspense',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CacheRoute = CacheRouteImport.update({
+  id: '/cache',
+  path: '/cache',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ActivityRoute = ActivityRouteImport.update({
+  id: '/activity',
+  path: '/activity',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DemoStartServerFuncsRoute = DemoStartServerFuncsRouteImport.update({
-  id: '/demo/start/server-funcs',
-  path: '/demo/start/server-funcs',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoStartApiRequestRoute = DemoStartApiRequestRouteImport.update({
-  id: '/demo/start/api-request',
-  path: '/demo/start/api-request',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoApiNamesRoute = DemoApiNamesRouteImport.update({
-  id: '/demo/api/names',
-  path: '/demo/api/names',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoStartSsrIndexRoute = DemoStartSsrIndexRouteImport.update({
-  id: '/demo/start/ssr/',
-  path: '/demo/start/ssr/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoStartSsrSpaModeRoute = DemoStartSsrSpaModeRouteImport.update({
-  id: '/demo/start/ssr/spa-mode',
-  path: '/demo/start/ssr/spa-mode',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoStartSsrFullSsrRoute = DemoStartSsrFullSsrRouteImport.update({
-  id: '/demo/start/ssr/full-ssr',
-  path: '/demo/start/ssr/full-ssr',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoStartSsrDataOnlyRoute = DemoStartSsrDataOnlyRouteImport.update({
-  id: '/demo/start/ssr/data-only',
-  path: '/demo/start/ssr/data-only',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/demo/api/names': typeof DemoApiNamesRoute
-  '/demo/start/api-request': typeof DemoStartApiRequestRoute
-  '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
-  '/demo/start/ssr/data-only': typeof DemoStartSsrDataOnlyRoute
-  '/demo/start/ssr/full-ssr': typeof DemoStartSsrFullSsrRoute
-  '/demo/start/ssr/spa-mode': typeof DemoStartSsrSpaModeRoute
-  '/demo/start/ssr': typeof DemoStartSsrIndexRoute
+  '/activity': typeof ActivityRoute
+  '/cache': typeof CacheRoute
+  '/suspense': typeof SuspenseRoute
+  '/use-action-state': typeof UseActionStateRoute
+  '/use-deferred-value': typeof UseDeferredValueRoute
+  '/use-id': typeof UseIdRoute
+  '/use-imperative-handle': typeof UseImperativeHandleRoute
+  '/use-sync-external-store': typeof UseSyncExternalStoreRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/demo/api/names': typeof DemoApiNamesRoute
-  '/demo/start/api-request': typeof DemoStartApiRequestRoute
-  '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
-  '/demo/start/ssr/data-only': typeof DemoStartSsrDataOnlyRoute
-  '/demo/start/ssr/full-ssr': typeof DemoStartSsrFullSsrRoute
-  '/demo/start/ssr/spa-mode': typeof DemoStartSsrSpaModeRoute
-  '/demo/start/ssr': typeof DemoStartSsrIndexRoute
+  '/activity': typeof ActivityRoute
+  '/cache': typeof CacheRoute
+  '/suspense': typeof SuspenseRoute
+  '/use-action-state': typeof UseActionStateRoute
+  '/use-deferred-value': typeof UseDeferredValueRoute
+  '/use-id': typeof UseIdRoute
+  '/use-imperative-handle': typeof UseImperativeHandleRoute
+  '/use-sync-external-store': typeof UseSyncExternalStoreRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/demo/api/names': typeof DemoApiNamesRoute
-  '/demo/start/api-request': typeof DemoStartApiRequestRoute
-  '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
-  '/demo/start/ssr/data-only': typeof DemoStartSsrDataOnlyRoute
-  '/demo/start/ssr/full-ssr': typeof DemoStartSsrFullSsrRoute
-  '/demo/start/ssr/spa-mode': typeof DemoStartSsrSpaModeRoute
-  '/demo/start/ssr/': typeof DemoStartSsrIndexRoute
+  '/activity': typeof ActivityRoute
+  '/cache': typeof CacheRoute
+  '/suspense': typeof SuspenseRoute
+  '/use-action-state': typeof UseActionStateRoute
+  '/use-deferred-value': typeof UseDeferredValueRoute
+  '/use-id': typeof UseIdRoute
+  '/use-imperative-handle': typeof UseImperativeHandleRoute
+  '/use-sync-external-store': typeof UseSyncExternalStoreRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/demo/api/names'
-    | '/demo/start/api-request'
-    | '/demo/start/server-funcs'
-    | '/demo/start/ssr/data-only'
-    | '/demo/start/ssr/full-ssr'
-    | '/demo/start/ssr/spa-mode'
-    | '/demo/start/ssr'
+    | '/activity'
+    | '/cache'
+    | '/suspense'
+    | '/use-action-state'
+    | '/use-deferred-value'
+    | '/use-id'
+    | '/use-imperative-handle'
+    | '/use-sync-external-store'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/demo/api/names'
-    | '/demo/start/api-request'
-    | '/demo/start/server-funcs'
-    | '/demo/start/ssr/data-only'
-    | '/demo/start/ssr/full-ssr'
-    | '/demo/start/ssr/spa-mode'
-    | '/demo/start/ssr'
+    | '/activity'
+    | '/cache'
+    | '/suspense'
+    | '/use-action-state'
+    | '/use-deferred-value'
+    | '/use-id'
+    | '/use-imperative-handle'
+    | '/use-sync-external-store'
   id:
     | '__root__'
     | '/'
-    | '/demo/api/names'
-    | '/demo/start/api-request'
-    | '/demo/start/server-funcs'
-    | '/demo/start/ssr/data-only'
-    | '/demo/start/ssr/full-ssr'
-    | '/demo/start/ssr/spa-mode'
-    | '/demo/start/ssr/'
+    | '/activity'
+    | '/cache'
+    | '/suspense'
+    | '/use-action-state'
+    | '/use-deferred-value'
+    | '/use-id'
+    | '/use-imperative-handle'
+    | '/use-sync-external-store'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  DemoApiNamesRoute: typeof DemoApiNamesRoute
-  DemoStartApiRequestRoute: typeof DemoStartApiRequestRoute
-  DemoStartServerFuncsRoute: typeof DemoStartServerFuncsRoute
-  DemoStartSsrDataOnlyRoute: typeof DemoStartSsrDataOnlyRoute
-  DemoStartSsrFullSsrRoute: typeof DemoStartSsrFullSsrRoute
-  DemoStartSsrSpaModeRoute: typeof DemoStartSsrSpaModeRoute
-  DemoStartSsrIndexRoute: typeof DemoStartSsrIndexRoute
+  ActivityRoute: typeof ActivityRoute
+  CacheRoute: typeof CacheRoute
+  SuspenseRoute: typeof SuspenseRoute
+  UseActionStateRoute: typeof UseActionStateRoute
+  UseDeferredValueRoute: typeof UseDeferredValueRoute
+  UseIdRoute: typeof UseIdRoute
+  UseImperativeHandleRoute: typeof UseImperativeHandleRoute
+  UseSyncExternalStoreRoute: typeof UseSyncExternalStoreRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/use-sync-external-store': {
+      id: '/use-sync-external-store'
+      path: '/use-sync-external-store'
+      fullPath: '/use-sync-external-store'
+      preLoaderRoute: typeof UseSyncExternalStoreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/use-imperative-handle': {
+      id: '/use-imperative-handle'
+      path: '/use-imperative-handle'
+      fullPath: '/use-imperative-handle'
+      preLoaderRoute: typeof UseImperativeHandleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/use-id': {
+      id: '/use-id'
+      path: '/use-id'
+      fullPath: '/use-id'
+      preLoaderRoute: typeof UseIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/use-deferred-value': {
+      id: '/use-deferred-value'
+      path: '/use-deferred-value'
+      fullPath: '/use-deferred-value'
+      preLoaderRoute: typeof UseDeferredValueRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/use-action-state': {
+      id: '/use-action-state'
+      path: '/use-action-state'
+      fullPath: '/use-action-state'
+      preLoaderRoute: typeof UseActionStateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/suspense': {
+      id: '/suspense'
+      path: '/suspense'
+      fullPath: '/suspense'
+      preLoaderRoute: typeof SuspenseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cache': {
+      id: '/cache'
+      path: '/cache'
+      fullPath: '/cache'
+      preLoaderRoute: typeof CacheRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/activity': {
+      id: '/activity'
+      path: '/activity'
+      fullPath: '/activity'
+      preLoaderRoute: typeof ActivityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -143,67 +212,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/demo/start/server-funcs': {
-      id: '/demo/start/server-funcs'
-      path: '/demo/start/server-funcs'
-      fullPath: '/demo/start/server-funcs'
-      preLoaderRoute: typeof DemoStartServerFuncsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo/start/api-request': {
-      id: '/demo/start/api-request'
-      path: '/demo/start/api-request'
-      fullPath: '/demo/start/api-request'
-      preLoaderRoute: typeof DemoStartApiRequestRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo/api/names': {
-      id: '/demo/api/names'
-      path: '/demo/api/names'
-      fullPath: '/demo/api/names'
-      preLoaderRoute: typeof DemoApiNamesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo/start/ssr/': {
-      id: '/demo/start/ssr/'
-      path: '/demo/start/ssr'
-      fullPath: '/demo/start/ssr'
-      preLoaderRoute: typeof DemoStartSsrIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo/start/ssr/spa-mode': {
-      id: '/demo/start/ssr/spa-mode'
-      path: '/demo/start/ssr/spa-mode'
-      fullPath: '/demo/start/ssr/spa-mode'
-      preLoaderRoute: typeof DemoStartSsrSpaModeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo/start/ssr/full-ssr': {
-      id: '/demo/start/ssr/full-ssr'
-      path: '/demo/start/ssr/full-ssr'
-      fullPath: '/demo/start/ssr/full-ssr'
-      preLoaderRoute: typeof DemoStartSsrFullSsrRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo/start/ssr/data-only': {
-      id: '/demo/start/ssr/data-only'
-      path: '/demo/start/ssr/data-only'
-      fullPath: '/demo/start/ssr/data-only'
-      preLoaderRoute: typeof DemoStartSsrDataOnlyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  DemoApiNamesRoute: DemoApiNamesRoute,
-  DemoStartApiRequestRoute: DemoStartApiRequestRoute,
-  DemoStartServerFuncsRoute: DemoStartServerFuncsRoute,
-  DemoStartSsrDataOnlyRoute: DemoStartSsrDataOnlyRoute,
-  DemoStartSsrFullSsrRoute: DemoStartSsrFullSsrRoute,
-  DemoStartSsrSpaModeRoute: DemoStartSsrSpaModeRoute,
-  DemoStartSsrIndexRoute: DemoStartSsrIndexRoute,
+  ActivityRoute: ActivityRoute,
+  CacheRoute: CacheRoute,
+  SuspenseRoute: SuspenseRoute,
+  UseActionStateRoute: UseActionStateRoute,
+  UseDeferredValueRoute: UseDeferredValueRoute,
+  UseIdRoute: UseIdRoute,
+  UseImperativeHandleRoute: UseImperativeHandleRoute,
+  UseSyncExternalStoreRoute: UseSyncExternalStoreRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
