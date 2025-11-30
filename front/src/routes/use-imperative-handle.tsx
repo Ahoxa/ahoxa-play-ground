@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useImperativeHandle, useRef, forwardRef, useState } from "react";
+import * as styles from "@/styles/demos.css";
 
 export const Route = createFileRoute("/use-imperative-handle")({
   component: ImperativeHandleDemo,
@@ -33,15 +34,13 @@ const CustomInput = forwardRef<CustomInputHandle, { label: string }>(
 
     return (
       <div
-        className={`transition-transform ${isShaking ? "animate-bounce" : ""}`}
+        className={`${styles.transitionTransform} ${isShaking ? styles.animateBounce : ""}`}
       >
-        <label className="block text-sm font-medium text-gray-700 mb-1">
-          {props.label}
-        </label>
+        <label className={styles.label}>{props.label}</label>
         <input
           ref={inputRef}
           type="text"
-          className="w-full p-2 border rounded border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+          className={`${styles.input} ${styles.inputFocus}`}
         />
       </div>
     );
@@ -52,33 +51,33 @@ function ImperativeHandleDemo() {
   const inputRef = useRef<CustomInputHandle>(null);
 
   return (
-    <div className="p-8 max-w-2xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">useImperativeHandle Demo</h1>
-      <p className="mb-6">
+    <div className={styles.container}>
+      <h1 className={styles.title}>useImperativeHandle Demo</h1>
+      <p className={styles.description}>
         useImperativeHandleを使うと、親コンポーネントに対して公開するrefの値をカスタマイズできます。
         DOMノードそのものではなく、特定のメソッドだけを公開したい場合に便利です。
       </p>
 
-      <div className="border p-6 rounded-lg bg-white shadow-sm mb-6">
+      <div className={`${styles.card} ${styles.shadowSm} ${styles.mb6}`}>
         <CustomInput ref={inputRef} label="操作される入力フィールド" />
       </div>
 
-      <div className="flex gap-4">
+      <div className={styles.flexGap4}>
         <button
           onClick={() => inputRef.current?.focus()}
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          className={styles.button}
         >
           フォーカス
         </button>
         <button
           onClick={() => inputRef.current?.clear()}
-          className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
+          className={`${styles.button} ${styles.buttonGray}`}
         >
           クリア
         </button>
         <button
           onClick={() => inputRef.current?.shake()}
-          className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+          className={`${styles.button} ${styles.buttonRed}`}
         >
           シェイク
         </button>

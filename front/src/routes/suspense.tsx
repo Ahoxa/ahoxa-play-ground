@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Suspense, useState, use } from "react";
+import * as styles from "@/styles/demos.css";
 
 export const Route = createFileRoute("/suspense")({
   component: SuspenseDemo,
@@ -28,52 +29,42 @@ function getCachedData(key: string, delay: number) {
 function DataComponent({ delay }: { delay: number }) {
   // React 19の 'use' フックでPromiseを解決
   const data = use(getCachedData(`data-${delay}`, delay));
-  return (
-    <div className="p-4 border rounded bg-green-50 text-green-800">{data}</div>
-  );
+  return <div className={styles.dataComponent}>{data}</div>;
 }
 
 function SuspenseDemo() {
   const [show, setShow] = useState(false);
 
   return (
-    <div className="p-8 max-w-2xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Suspense Demo</h1>
-      <p className="mb-4">
+    <div className={styles.container}>
+      <h1 className={styles.title}>Suspense Demo</h1>
+      <p className={styles.description}>
         Suspenseを使うと、コンポーネントの準備（データ取得など）ができあがるまで、
         代替のUI（ローディング表示）を見せることができます。
       </p>
 
       <button
         onClick={() => setShow((prev) => !prev)}
-        className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 mb-6"
+        className={`${styles.button} ${styles.mb6}`}
       >
         {show ? "リセット" : "データを読み込む"}
       </button>
 
       {show && (
-        <div className="space-y-4">
-          <div className="border p-4 rounded">
-            <h3 className="font-bold mb-2">コンポーネント 1 (1秒遅延)</h3>
+        <div className={styles.stack}>
+          <div className={styles.card}>
+            <h3 className={styles.cardTitle}>コンポーネント 1 (1秒遅延)</h3>
             <Suspense
-              fallback={
-                <div className="p-4 bg-gray-100 animate-pulse">
-                  読み込み中...
-                </div>
-              }
+              fallback={<div className={styles.fallback}>読み込み中...</div>}
             >
               <DataComponent delay={1000} />
             </Suspense>
           </div>
 
-          <div className="border p-4 rounded">
-            <h3 className="font-bold mb-2">コンポーネント 2 (3秒遅延)</h3>
+          <div className={styles.card}>
+            <h3 className={styles.cardTitle}>コンポーネント 2 (3秒遅延)</h3>
             <Suspense
-              fallback={
-                <div className="p-4 bg-gray-100 animate-pulse">
-                  読み込み中...
-                </div>
-              }
+              fallback={<div className={styles.fallback}>読み込み中...</div>}
             >
               <DataComponent delay={3000} />
             </Suspense>

@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useSyncExternalStore } from "react";
+import * as styles from "@/styles/demos.css";
 
 export const Route = createFileRoute("/use-sync-external-store")({
   component: SyncExternalStoreDemo,
@@ -44,35 +45,35 @@ function SyncExternalStoreDemo() {
   const width = useWindowWidth();
 
   return (
-    <div className="p-8 max-w-2xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">useSyncExternalStore Demo</h1>
-      <p className="mb-6">
+    <div className={styles.container}>
+      <h1 className={styles.title}>useSyncExternalStore Demo</h1>
+      <p className={styles.description}>
         useSyncExternalStoreは、React外部のストア（ブラウザAPI、Redux、Zustandなど）を
         ティアリング（表示の不整合）なしに購読するためのフックです。
       </p>
 
-      <div className="grid gap-6">
+      <div className={styles.grid}>
         <div
-          className={`p-6 rounded-lg border-2 ${isOnline ? "border-green-500 bg-green-50" : "border-red-500 bg-red-50"}`}
+          className={`${styles.statusCard} ${isOnline ? styles.statusCardOnline : styles.statusCardOffline}`}
         >
-          <h2 className="text-xl font-bold mb-2">ネットワーク状態</h2>
-          <div className="flex items-center gap-2">
+          <h2 className={styles.cardTitle}>ネットワーク状態</h2>
+          <div className={styles.flexCenterGap2}>
             <div
-              className={`w-4 h-4 rounded-full ${isOnline ? "bg-green-500" : "bg-red-500"}`}
+              className={`${styles.statusIndicator} ${isOnline ? styles.statusIndicatorOnline : styles.statusIndicatorOffline}`}
             ></div>
-            <span className="text-lg">
+            <span className={styles.textLg}>
               {isOnline ? "オンライン" : "オフライン"}
             </span>
           </div>
-          <p className="text-sm text-gray-600 mt-2">
+          <p className={`${styles.textSmGray600} ${styles.mt2}`}>
             開発者ツールのNetworkタブでオフラインに切り替えてみてください。
           </p>
         </div>
 
-        <div className="p-6 rounded-lg border border-blue-200 bg-blue-50">
-          <h2 className="text-xl font-bold mb-2">ウィンドウ幅</h2>
-          <div className="text-4xl font-mono text-blue-600">{width}px</div>
-          <p className="text-sm text-gray-600 mt-2">
+        <div className={styles.windowWidthCard}>
+          <h2 className={styles.cardTitle}>ウィンドウ幅</h2>
+          <div className={styles.windowWidthText}>{width}px</div>
+          <p className={`${styles.textSmGray600} ${styles.mt2}`}>
             ウィンドウサイズを変更すると即座に反映されます。
           </p>
         </div>

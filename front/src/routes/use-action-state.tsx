@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-// @ts-ignore - React 19 types might not be fully updated in the editor context
 import { useActionState } from "react";
 
 export const Route = createFileRoute("/use-action-state")({

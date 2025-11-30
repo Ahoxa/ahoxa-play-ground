@@ -1,7 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, useEffect, useRef } from "react";
-// @ts-ignore - Activity might be unstable or not in types yet
-import { Activity } from "react";
+import { useState, useEffect, Activity } from "react";
 
 export const Route = createFileRoute("/activity")({
   component: ActivityDemo,

@@ -1,7 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, Suspense } from "react";
-// @ts-ignore
-import { cache } from "react";
+import { useState, cache } from "react";
 
 export const Route = createFileRoute("/cache")({
   component: CacheDemo,
