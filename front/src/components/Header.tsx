@@ -59,7 +59,7 @@ export default function Header() {
 				</button>
 				<h1 className={styles.title}>
 					<Link to="/" className={styles.titleLink}>
-						<span>React Hooks Playground</span>
+						<span>React Playground</span>
 					</Link>
 				</h1>
 			</header>

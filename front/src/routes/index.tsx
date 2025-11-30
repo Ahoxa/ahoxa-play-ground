@@ -87,9 +87,10 @@ function App() {
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <header className={styles.header}>
-          <h1 className={styles.title}>React Hooks Playground</h1>
+          <h1 className={styles.title}>React Playground</h1>
+          <h3 className={styles.author}>by Ahoxa</h3>
           <p className={styles.subtitle}>
-            マイナーだけど強力なReact HooksとReact 19の新機能を学ぶ
+            Reactの気になる新機能やフックを試せるデモ集。少し解説もする。
           </p>
         </header>
 

@@ -24,6 +24,12 @@ export const title = style({
   marginBottom: "1rem",
 });
 
+export const author = style({
+	fontSize: "1rem",
+  color: "#6b7280",
+  marginBottom: "0.5rem",
+});
+
 export const subtitle = style({
   fontSize: "1.25rem",
   color: "#4b5563",
