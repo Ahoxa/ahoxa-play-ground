@@ -55,6 +55,17 @@ export const card = style({
   },
 });
 
+export const cardDisabled = style({
+  display: "block",
+  padding: "1.5rem",
+  backgroundColor: "#f9fafb",
+  borderRadius: "0.75rem",
+  border: "1px solid #e5e7eb",
+  textDecoration: "none",
+  opacity: 0.6,
+  cursor: "not-allowed",
+});
+
 export const cardContent = style({
   display: "flex",
   alignItems: "flex-start",

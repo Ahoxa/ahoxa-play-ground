@@ -15,7 +15,6 @@ import { Route as UseIdRouteImport } from './routes/use-id'
 import { Route as UseDeferredValueRouteImport } from './routes/use-deferred-value'
 import { Route as UseActionStateRouteImport } from './routes/use-action-state'
 import { Route as SuspenseRouteImport } from './routes/suspense'
-import { Route as CacheRouteImport } from './routes/cache'
 import { Route as ActivityRouteImport } from './routes/activity'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -49,11 +48,6 @@ const SuspenseRoute = SuspenseRouteImport.update({
   path: '/suspense',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CacheRoute = CacheRouteImport.update({
-  id: '/cache',
-  path: '/cache',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ActivityRoute = ActivityRouteImport.update({
   id: '/activity',
   path: '/activity',
@@ -68,7 +62,6 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/activity': typeof ActivityRoute
-  '/cache': typeof CacheRoute
   '/suspense': typeof SuspenseRoute
   '/use-action-state': typeof UseActionStateRoute
   '/use-deferred-value': typeof UseDeferredValueRoute
@@ -79,7 +72,6 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/activity': typeof ActivityRoute
-  '/cache': typeof CacheRoute
   '/suspense': typeof SuspenseRoute
   '/use-action-state': typeof UseActionStateRoute
   '/use-deferred-value': typeof UseDeferredValueRoute
@@ -91,7 +83,6 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/activity': typeof ActivityRoute
-  '/cache': typeof CacheRoute
   '/suspense': typeof SuspenseRoute
   '/use-action-state': typeof UseActionStateRoute
   '/use-deferred-value': typeof UseDeferredValueRoute
@@ -104,7 +95,6 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/activity'
-    | '/cache'
     | '/suspense'
     | '/use-action-state'
     | '/use-deferred-value'
@@ -115,7 +105,6 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/activity'
-    | '/cache'
     | '/suspense'
     | '/use-action-state'
     | '/use-deferred-value'
@@ -126,7 +115,6 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/activity'
-    | '/cache'
     | '/suspense'
     | '/use-action-state'
     | '/use-deferred-value'
@@ -138,7 +126,6 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ActivityRoute: typeof ActivityRoute
-  CacheRoute: typeof CacheRoute
   SuspenseRoute: typeof SuspenseRoute
   UseActionStateRoute: typeof UseActionStateRoute
   UseDeferredValueRoute: typeof UseDeferredValueRoute
@@ -191,13 +178,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SuspenseRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/cache': {
-      id: '/cache'
-      path: '/cache'
-      fullPath: '/cache'
-      preLoaderRoute: typeof CacheRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/activity': {
       id: '/activity'
       path: '/activity'
@@ -218,7 +198,6 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ActivityRoute: ActivityRoute,
-  CacheRoute: CacheRoute,
   SuspenseRoute: SuspenseRoute,
   UseActionStateRoute: UseActionStateRoute,
   UseDeferredValueRoute: UseDeferredValueRoute,

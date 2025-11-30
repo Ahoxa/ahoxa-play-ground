@@ -22,6 +22,7 @@ function App() {
     description: string;
     icon: React.ReactNode;
     color: ColorVariant;
+    disabled?: boolean;
   }[] = [
     {
       path: "/suspense",
@@ -75,9 +76,10 @@ function App() {
     {
       path: "/cache",
       title: "cache",
-      description: "関数の実行結果をメモ化 (React 19)",
+      description: "準備中",
       icon: <Layout className="w-6 h-6" />,
       color: "pink",
+      disabled: true,
     },
   ];
 
@@ -92,8 +94,8 @@ function App() {
         </header>
 
         <div className={styles.grid}>
-          {demos.map((demo) => (
-            <Link key={demo.path} to={demo.path} className={styles.card}>
+          {demos.map((demo) => {
+            const content = (
               <div className={styles.cardContent}>
                 <div
                   className={`${styles.iconWrapper} ${styles.iconColors[demo.color]}`}
@@ -105,8 +107,22 @@ function App() {
                   <p className={styles.cardDescription}>{demo.description}</p>
                 </div>
               </div>
-            </Link>
-          ))}
+            );
+
+            if (demo.disabled) {
+              return (
+                <div key={demo.path} className={styles.cardDisabled}>
+                  {content}
+                </div>
+              );
+            }
+
+            return (
+              <Link key={demo.path} to={demo.path} className={styles.card}>
+                {content}
+              </Link>
+            );
+          })}
         </div>
       </div>
     </div>
