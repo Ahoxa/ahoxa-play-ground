@@ -30,11 +30,6 @@ export const button = style({
   },
 });
 
-export const buttonDisabled = style({
-  backgroundColor: "#93c5fd",
-  cursor: "not-allowed",
-});
-
 export const card = style({
   border: "1px solid #e5e7eb",
   padding: "1rem",
@@ -50,12 +45,6 @@ export const cardTitle = style({
 export const grid = style({
   display: "grid",
   gap: "1rem",
-});
-
-export const twoColumnGrid = style({
-  display: "grid",
-  gridTemplateColumns: "1fr 1fr",
-  gap: "1.5rem",
 });
 
 export const input = style({
