@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { useState } from "react";
-import * as styles from "../../styles/routes/demo/start.server-funcs.css";
+import * as styles from "../../styles/demo/start.server-funcs.css";
 
 const getCurrentServerTime = createServerFn({
   method: "GET",

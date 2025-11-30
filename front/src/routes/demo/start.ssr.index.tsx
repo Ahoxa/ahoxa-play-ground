@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import * as styles from "../../styles/routes/demo/start.ssr.index.css";
+import * as styles from "../../styles/demo/start.ssr.index.css";
 
 export const Route = createFileRoute("/demo/start/ssr/")({
   component: RouteComponent,

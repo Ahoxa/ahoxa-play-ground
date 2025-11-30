@@ -7,7 +7,7 @@ import {
   Waves,
   Zap,
 } from "lucide-react";
-import * as styles from "../styles/routes/index.css";
+import * as styles from "../styles/index.css";
 
 export const Route = createFileRoute("/")({ component: App });
 
