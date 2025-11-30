@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as UseSyncExternalStoreRouteImport } from './routes/use-sync-external-store'
+import { Route as UseOptimisticRouteImport } from './routes/use-optimistic'
 import { Route as UseImperativeHandleRouteImport } from './routes/use-imperative-handle'
 import { Route as UseIdRouteImport } from './routes/use-id'
 import { Route as UseDeferredValueRouteImport } from './routes/use-deferred-value'
@@ -21,6 +22,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const UseSyncExternalStoreRoute = UseSyncExternalStoreRouteImport.update({
   id: '/use-sync-external-store',
   path: '/use-sync-external-store',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UseOptimisticRoute = UseOptimisticRouteImport.update({
+  id: '/use-optimistic',
+  path: '/use-optimistic',
   getParentRoute: () => rootRouteImport,
 } as any)
 const UseImperativeHandleRoute = UseImperativeHandleRouteImport.update({
@@ -67,6 +73,7 @@ export interface FileRoutesByFullPath {
   '/use-deferred-value': typeof UseDeferredValueRoute
   '/use-id': typeof UseIdRoute
   '/use-imperative-handle': typeof UseImperativeHandleRoute
+  '/use-optimistic': typeof UseOptimisticRoute
   '/use-sync-external-store': typeof UseSyncExternalStoreRoute
 }
 export interface FileRoutesByTo {
@@ -77,6 +84,7 @@ export interface FileRoutesByTo {
   '/use-deferred-value': typeof UseDeferredValueRoute
   '/use-id': typeof UseIdRoute
   '/use-imperative-handle': typeof UseImperativeHandleRoute
+  '/use-optimistic': typeof UseOptimisticRoute
   '/use-sync-external-store': typeof UseSyncExternalStoreRoute
 }
 export interface FileRoutesById {
@@ -88,6 +96,7 @@ export interface FileRoutesById {
   '/use-deferred-value': typeof UseDeferredValueRoute
   '/use-id': typeof UseIdRoute
   '/use-imperative-handle': typeof UseImperativeHandleRoute
+  '/use-optimistic': typeof UseOptimisticRoute
   '/use-sync-external-store': typeof UseSyncExternalStoreRoute
 }
 export interface FileRouteTypes {
@@ -100,6 +109,7 @@ export interface FileRouteTypes {
     | '/use-deferred-value'
     | '/use-id'
     | '/use-imperative-handle'
+    | '/use-optimistic'
     | '/use-sync-external-store'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -110,6 +120,7 @@ export interface FileRouteTypes {
     | '/use-deferred-value'
     | '/use-id'
     | '/use-imperative-handle'
+    | '/use-optimistic'
     | '/use-sync-external-store'
   id:
     | '__root__'
@@ -120,6 +131,7 @@ export interface FileRouteTypes {
     | '/use-deferred-value'
     | '/use-id'
     | '/use-imperative-handle'
+    | '/use-optimistic'
     | '/use-sync-external-store'
   fileRoutesById: FileRoutesById
 }
@@ -131,6 +143,7 @@ export interface RootRouteChildren {
   UseDeferredValueRoute: typeof UseDeferredValueRoute
   UseIdRoute: typeof UseIdRoute
   UseImperativeHandleRoute: typeof UseImperativeHandleRoute
+  UseOptimisticRoute: typeof UseOptimisticRoute
   UseSyncExternalStoreRoute: typeof UseSyncExternalStoreRoute
 }
 
@@ -141,6 +154,13 @@ declare module '@tanstack/react-router' {
       path: '/use-sync-external-store'
       fullPath: '/use-sync-external-store'
       preLoaderRoute: typeof UseSyncExternalStoreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/use-optimistic': {
+      id: '/use-optimistic'
+      path: '/use-optimistic'
+      fullPath: '/use-optimistic'
+      preLoaderRoute: typeof UseOptimisticRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/use-imperative-handle': {
@@ -203,6 +223,7 @@ const rootRouteChildren: RootRouteChildren = {
   UseDeferredValueRoute: UseDeferredValueRoute,
   UseIdRoute: UseIdRoute,
   UseImperativeHandleRoute: UseImperativeHandleRoute,
+  UseOptimisticRoute: UseOptimisticRoute,
   UseSyncExternalStoreRoute: UseSyncExternalStoreRoute,
 }
 export const routeTree = rootRouteImport

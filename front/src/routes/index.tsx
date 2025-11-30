@@ -8,6 +8,7 @@ import {
   Loader,
   MousePointerClick,
   RefreshCw,
+  Zap,
 } from "lucide-react";
 import * as styles from "@/styles/index.css";
 
@@ -65,6 +66,13 @@ function App() {
       description: "フォームアクションの状態管理 (React 19)",
       icon: <Database className="w-6 h-6" />,
       color: "indigo",
+    },
+    {
+      path: "/use-optimistic",
+      title: "useOptimistic",
+      description: "非同期アクション中の楽観的UI更新 (React 19)",
+      icon: <Zap className="w-6 h-6" />,
+      color: "orange",
     },
     {
       path: "/activity",
